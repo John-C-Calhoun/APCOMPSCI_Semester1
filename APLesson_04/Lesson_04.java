@@ -25,13 +25,13 @@ public class Lesson_04
 		kb.nextLine();
 		
 		double price4 = price1+price2+price3;
-		double price5 = price4 * 0.1;
+		double price5 = price4 * 0.08;
 		double price6 = price4+price5;
 		String item4 = "Subtotal:";
 		String item5 = "Tax:";
 		String item6 = "Total";		
 		
-		System.out.printf("<<<<<<<<<<<__Receipt__>>>>>>>>>>>");
+		System.out.printf("<<<<<<<<<<<<<<<__Receipt__>>>>>>>>>>>>>>>");
 		System.out.println("");
 		form.format(item1, price1);
 		form.format(item2, price2);
@@ -40,12 +40,14 @@ public class Lesson_04
 		form.format(item4, price4);
 		form.format(item5, price5);
 		form.format(item6, price6);
-		
+		System.out.println("");
+		System.out.println("___________________________________________");
+		System.out.println(" * Thank you for your support *");		
 	}
 	
 	public void format(String item, double price)
 	{
-		System.out.printf("\n%30s ........%30.2f", item, price);
+		System.out.printf("\n* %17s ........%10.2f", item, price);
 	}
 	
 }
