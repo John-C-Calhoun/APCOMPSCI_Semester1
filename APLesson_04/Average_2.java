@@ -29,6 +29,6 @@ public class Average_2
 	}
 	public static void print()
 	{
-		System.out.printf("The average of "+num1+", "+num2+", and "+num3+" is %.5f.", avg);
+		System.out.printf("The average of %.1f, %.1f, and %.1f is %.5f.", num1, num2, num3, avg);
 	}
 }
