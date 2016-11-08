@@ -28,6 +28,6 @@ public class Compound_Interest
 	
 	public double calcAvg(double one, double two, double three, double four)
 	{
-		return (two*Math.pow((1+(one/three)), three*four));
+		return (two*Math.pow((1+(one/three)), three*four))/(12*four);
 	}
 }
