@@ -3,7 +3,7 @@ public class Average
 {
 	public static void main(String[]args)
 	{
-		Average average = new Average();
+
 		Scanner kb = new Scanner(System.in);
 		
 		System.out.println("Enter your first number: ");
