@@ -14,6 +14,7 @@ public class Average_Numbers
 		}
 		System.out.println("");
 		System.out.println("The avergae of the above numbers is... " + average(numbers));
+	}
 	public static int average(int[] go)
 	{
 		int avg = 0;
