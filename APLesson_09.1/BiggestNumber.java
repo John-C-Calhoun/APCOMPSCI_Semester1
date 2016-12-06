@@ -27,11 +27,11 @@ public class BiggestNumber
 	public static void getBiggest()
 	{
 		int max;
-		for(int b : Array)
+		for(int big : Array)
 		{
-			if(b > max)
-				max = b;
+			if(big > max)
+				max = big;
 		}
-		System.out.print(b);
+		System.out.print(big);
 	}
 }
