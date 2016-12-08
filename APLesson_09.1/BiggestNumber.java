@@ -15,7 +15,7 @@ public class BiggestNumber
 		}
 		System.out.println("For the following numbers... ");
 		printArray();
-		System.out.println("\nTheir biggest number is...");
+		System.out.println("\nThe biggest number is...");
 		getBiggest();
 	}
 	public static void printArray()
@@ -27,22 +27,12 @@ public class BiggestNumber
 	}
 	public static void getBiggest()
 	{
-<<<<<<< HEAD
 		int max = 0;
-		for(int num : numbers)
-		{
-			if(num > max)
-				max = num;
-		}
-		System.out.println(max);
-=======
-		int max;
-		for(int big : Array)
+		for(int big : numbers)
 		{
 			if(big > max)
 				max = big;
 		}
-		System.out.print(big);
->>>>>>> 058aebfff15f748c7949bd2f3341e0831a6e5815
+		System.out.println(max);
 	}
 }
