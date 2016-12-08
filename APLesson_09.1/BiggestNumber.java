@@ -1,6 +1,7 @@
 public class BiggestNumber
 {
-	static int[] Array = new int[10];
+	static int[] numbers = new int[10];
+	static int i;
 	
 	public static void main(String[]args)
 	{
@@ -8,30 +9,30 @@ public class BiggestNumber
 	}
 	public static void fillArray()
 	{
-		for(int i = 0; i < Array.length; i++)
+		for(i = 0; i < numbers.length; i++)
 		{
-			Array[i] = (int)((Math.random() * 100) + 1);
+			numbers[i] = (int)((Math.random() * 100) + 1);
 		}
 		System.out.println("For the following numbers... ");
 		printArray();
-		System.out.println("Their biggest number is...");
+		System.out.println("\nTheir biggest number is...");
 		getBiggest();
 	}
 	public static void printArray()
 	{
-		for(int a : Array)
+		for(int num : numbers)
 		{
-			System.out.print(a + " ");
+			System.out.print(num + " ");
 		}
 	}
 	public static void getBiggest()
 	{
-		int max;
-		for(int b : Array)
+		int max = 0;
+		for(int num : numbers)
 		{
-			if(b > max)
-				max = b;
+			if(num > max)
+				max = num;
 		}
-		System.out.print(b);
+		System.out.println(max);
 	}
 }
