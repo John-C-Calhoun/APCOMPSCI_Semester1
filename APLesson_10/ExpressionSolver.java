@@ -6,12 +6,12 @@ public class ExpressionSolver
 	public static void main(String[]args)
 	{
 		Scanner kb = new Scanner(System.in);
-		System.out.println("Please enter an equation");
+		System.out.println("Please enter an equation: ");
 		
 		ArrayList<String> equation = new ArrayList<>(Arrays.asList(kb.nextLine()));
 		System.out.println(doEquation(equation));
 	}
-	public static void doEquation(ArrayList() equation)
+	public static String doEquation(equation)
 	{
 		while(int i = 0; i < equation.size(); i++)
 		{
@@ -28,7 +28,11 @@ public class ExpressionSolver
 				equation.remove(i-1);
 				equation.remove(i);
 			}
-			else if(equation.get(i) == "+" || equation.get(i) == "-")
+		}
+		equation.add(1);
+		while(int j = 0; j < equation.size(); j++)
+		{
+			if(equation.get(i) == "+" || equation.get(i) == "-")
 			{
 				if(equation.get(i) == "+")
 				{
@@ -41,8 +45,8 @@ public class ExpressionSolver
 				equation.remove(i-1);
 				equation.remove(i);
 			}
-			equation.add(1 + i);
 		}
+		equation.add(1);
 		return equation;
 	}
 }
