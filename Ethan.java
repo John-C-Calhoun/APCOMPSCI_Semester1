@@ -6,23 +6,23 @@ public class Ethan
 	public static void main(String [] args)
 	{
 		Scanner kb = new Scanner(System.in);
-		System.out.println("You are about to go on a journey. Use  1 for yes and 2 for no to take risks in the game.");
-		System.out.println("You see food; do you eat it?");
+		System.out.println("You are about to go on a journey. Use  1 y for yes and 2 n for no to take risks in the game.");
+		System.out.println("You see food do you eat it?");
 
 
 		chance = kb.nextInt();
 		if(chance == 1)
 		{	
-			System.out.println("You find more food; do you eat it?");
+			System.out.println("You find more food do you eat it?");
 			chance2 = kb.nextInt();
 			if(chance2 == 2)
 			{
-				System.out.println("You find food inside the bin; do you eat it?");
+				System.out.println("You find food inside the bin do you eat it?");
 				chance= kb.nextInt();
 				if(chance == 1)
-					System.out.println("Nothing happens.");
+					System.out.println("NOthing happens.");
 				else
-					System.out.println("You feel hobo.");
+					System.out.println("You feel hobo");
 			}
 			else
 			{
@@ -40,10 +40,10 @@ public class Ethan
 			chance = kb.nextInt();
 			if(chance == 2)
 			{
-				System.out.println("You decide to run away from eating?");
+				System.out.println("you decide to run away from eating?");
 				chance = kb.nextInt();
 				if(chance == 1)
-					System.out.println("You find a burger.");
+					System.out.println("You find a burger .");
 				else
 					System.out.println("You decide to run away.");
 			}
@@ -52,9 +52,9 @@ public class Ethan
 				System.out.println("You find a watch?");
 				chance = kb.nextInt();
 				if(chance == 1)
-					System.out.println("You decide to put on the watch.");
+					System.out.println("You decide to put on the watch");
 				else
-					System.out.println("You get put in jail to rot for life. That's all for now.");
+					System.out.println("You get put in jail to rot for life.");
 			}
 		}
 	}
