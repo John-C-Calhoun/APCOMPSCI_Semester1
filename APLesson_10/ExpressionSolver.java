@@ -3,46 +3,60 @@ import java.util.ArrayList;
 import java.util.Scanner;
 public class ExpressionSolver
 {
+	
 	public static void main(String[]args)
 	{
 		Scanner kb = new Scanner(System.in);
 		System.out.println("Please enter an equation");
+		String expression = kb.nextLine();
 		
-		ArrayList<String> equation = new ArrayList<>(Arrays.asList(kb.nextLine()));
-		System.out.println(doEquation(equation));
-	}
-	public static void doEquation(ArrayList() equation)
-	{
-		while(int i = 0; i < equation.size(); i++)
+		ArrayList<String> equation = new ArrayList<>(Arrays.asList(expression.split(" ")));
+		
+		int i = 0;
+		while(i < equation.size() && equation.get(i).equals("*"))
 		{
-			if(equation.get(i) == "*" || equation.get(i) == "/")
+			if(i < equation.size() && equation.get(i).equals("*"))
 			{
-				if(equation.get(i) == "*")
-				{
-					equation.get(i) = equation.get(i-1) * equation.get(i+1);
-				}
-				else
-				{
-					equation.get(i) = equation.get(i-1) / equation.get(i+1);
-				}
-				equation.remove(i-1);
-				equation.remove(i);
+				equation.set(i, "" + (Integer.parseInt(equation.get(i-1)) + Integer.parseInt(equation.get(i+1))));
 			}
-			else if(equation.get(i) == "+" || equation.get(i) == "-")
-			{
-				if(equation.get(i) == "+")
-				{
-					equation.get(i) = equation.get(i-1) + equation.get(i+1);
-				}
-				else
-				{
-					equation.get(i) = equation.get(i-1) - equation.get(i+1);
-				}
-				equation.remove(i-1);
-				equation.remove(i);
+			else
+			{	
+				i++;
 			}
-			equation.add(1 + i);
 		}
-		return equation;
+		while(i < equation.size() && equation.get(i).equals("/"))
+		{
+			if(i < equation.size() && equation.get(i).equals("/"))
+			{
+				equation.set(i, "" + (Integer.parseInt(equation.get(i-1)) + Integer.parseInt(equation.get(i+1))));
+			}
+			else
+			{	
+				i++;
+			}
+		}
+		while(i < equation.size() && equation.get(i).equals("+"))
+		{
+			if(i < equation.size() && equation.get(i).equals("+"))
+			{
+				equation.set(i, "" + (Integer.parseInt(equation.get(i-1)) + Integer.parseInt(equation.get(i+1))));
+			}
+			else
+			{	
+				i++;
+			}
+		}
+		while(i < equation.size() && equation.get(i).equals("-"))
+		{
+			if(i < equation.size() && equation.get(i).equals("-"))
+			{
+				equation.set(i, "" + (Integer.parseInt(equation.get(i-1)) + Integer.parseInt(equation.get(i+1))));
+			}
+			else
+			{	
+				i++;
+			}
+		}
+		System.out.println(equation);
 	}
 }
