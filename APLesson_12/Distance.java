@@ -24,8 +24,10 @@ public class Distance
 	
 	public void setValues(int xO, int yO, int xT, int yT)
 	{
-		xO = 0;
-		yO = 0;
+		xOne = xO;
+		yOne = yO;
+		xTwo = xT;
+		yTwo = yT;
 	}
 	
 	public double getDist()
