@@ -4,9 +4,9 @@ public class ToyRunner
 	public static void main(String[]args)
 	{
 		AFigure bob = new AFigure("Bob the Builder");
-		Car srcr = new Car("Speed Racer");
+		Car lightning = new Car("McQueen");
 		
 		System.out.println(bob);
-		System.out.println(srcr);
+		System.out.println(lightning);
 	}
 }

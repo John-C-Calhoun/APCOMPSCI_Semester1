@@ -1,25 +1,24 @@
 import java.util.ArrayList;
 public class ToyStore
 {
-	private ArrayList<toyList> toyList;
-	static int count = 0;
+	private ArrayList<Toy> toyList;
 	
 	public ToyStore()
 	{
-		loadToys();
+		
 	}
 	public ToyStore(String ts)
 	{
 		loadToys(ts);
 	}
-	public static void loadToys(String ts)
+	public void loadToys(String ts)
 	{
-		ArrayList<String> toys = new ArrayList<>(Arrays.asList(ts.split(", ")));
+		String[] toys = ts.split(", ");
 		
-		for(int i = 0; i < toys.size; i++)
+		for(int i = 0; i < toys.length; i+=2)
 		{
-			String name = toys.get(i);
-			String type = toys.get(i) + 1;
+			String name = toys[i];
+			String type = toys[i + 1];
 			Toy t = getThatToy(name);
 			if(t == null)
 			{
@@ -38,7 +37,7 @@ public class ToyStore
 			}
 		}
 	}
-	public String getThatToy(String nm)
+	public Toy getThatToy(String nm)
 	{
 		for(Toy t : toyList)
 		{
@@ -46,21 +45,21 @@ public class ToyStore
 			{
 				return t;
 			}
-			else
-			{
-				return null;
-			}
 		}
+		return null;
 	}
 	public String getMostFrequentToy()
 	{
 		String name = "";
-		int max = Integer.MIN_VALUE;
+		int max = 0;
 		
-		if(max < count)
+		for(Toy t : toyList)
 		{
-			max = count;
-			name = name;
+			if(max < t.getCount())
+			{
+				max = t.getCount();
+				name = t.getName();
+			}
 		}
 		return name;
 	}
@@ -69,13 +68,13 @@ public class ToyStore
 		int cars = 0;
 		int figures = 0;
 		
-		for(String Toy: toyList)
+		for(Toy t: toyList)
 		{
-			if(t.getType == "Car")
+			if(t.getType().equals("Car"))
 			{
 				cars++;
 			}
-			if(t.getType == "AF")
+			if(t.getType().equals("AF"))
 			{
 				figures++;
 			}
@@ -88,13 +87,11 @@ public class ToyStore
 		{
 			return "Cars";
 		}
-		else if(figures == cars)
-		{
+		else 
 			return "Equal number of action figures and cars!";
-		}
 	}
 	public String toString()
 	{
-		return toyList;
+		return toyList.toString();
 	}
 }

@@ -8,6 +8,10 @@ public class Car extends Toy
 	{
 		super(n);
 	}
+	public String toString()
+	{
+		return super.toString();
+	}
 	public String getType()
 	{
 		return "Car";
