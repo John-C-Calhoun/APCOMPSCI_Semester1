@@ -3,22 +3,12 @@ public class ToyStoreRunner
 {
 	public static void main(String[]args)
 	{
-		String name = "2Chainz";
-		ToyStore object = new ToyStore(name);
-		System.out.println(object);
-		
-		ArrayList<ToyStore> inventory = new ArrayList<ToyStore>();
-		inventory.add(new AFigure("G.I.Joe"));
-		inventory.add(new AFigure("StarWars"));
-		inventory.add(new Car("PullBack"));
-		inventory.add(new Car("Hotwheel"));
-		inventory.add(new Car("PennyRacer"));
-		inventory.add(new Car("MatchBox"));
+		ToyStore store = new ToyStore("Hotwheel, Car, G.I.Joe, AF, PennyRacer, Car, Matchbox, Car, Star Wars, AF, Pullback, Car, Star Wars, AF");
 		
 		System.out.println("List...");
-		System.out.println(inventory);
+		System.out.println(store);
 		
-		System.out.println("Most Frequent Toy: " + ToyStore.getMostFrequentToy());
-		System.out.println("Most Frequent Type: " + ToyStore.getMostFrequentType());
+		System.out.println("Most Frequent Toy: " + store.getMostFrequentToy());
+		System.out.println("Most Frequent Type: " + store.getMostFrequentType());
 	}
 }

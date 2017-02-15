@@ -2,10 +2,9 @@ import java.util.ArrayList;
 public class ToyStore
 {
 	private ArrayList<Toy> toyList;
-	
 	public ToyStore()
 	{
-		
+		toyList = new ArrayList<>();
 	}
 	public ToyStore(String ts)
 	{
@@ -13,6 +12,7 @@ public class ToyStore
 	}
 	public void loadToys(String ts)
 	{
+		toyList = new ArrayList<>();
 		String[] toys = ts.split(", ");
 		
 		for(int i = 0; i < toys.length; i+=2)
