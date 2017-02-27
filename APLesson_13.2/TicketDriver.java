@@ -2,7 +2,7 @@ public class TicketDriver
 {
 	public static void main(String[]args)
 	{
-		Advance adv = new Advance(8);
+		Advance adv = new Advance();
 		System.out.println(adv);
 		System.out.println("");
 		

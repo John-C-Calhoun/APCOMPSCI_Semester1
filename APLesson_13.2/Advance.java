@@ -8,6 +8,7 @@ public class Advance extends Ticket
 	}
 	public Advance(int dDL)
 	{
+		super();
 		daysLeft = dDL;
 	}
 	public double getPrice()

@@ -4,7 +4,7 @@ public class StudentAdvance extends Advance
 	{
 		super();
 	}
-	public double getPrice();
+	public double getPrice()
 	{
 		return super.getPrice()/2;
 	}
