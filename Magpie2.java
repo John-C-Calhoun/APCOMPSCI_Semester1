@@ -29,15 +29,15 @@ public class Magpie2
 		/** To be completed in Exercise_02:
 		 * 	Modify the following code to use the findKeyword
 		 * 	Method (details in "Exercise_02" below. */
-		else if (statement.indexOf("no") >= 0)
+		else if (findKeyword(statement, "no"))
 		{
 			response = "Why so negative?";
 		}
 
-		else if (statement.indexOf("mother") >= 0
-				|| statement.indexOf("father") >= 0
-				|| statement.indexOf("sister") >= 0
-				|| statement.indexOf("brother") >= 0)
+		else if (findKeyword(statement, "mother")
+				|| findKeyword(statement, "father")
+				|| findKeyword(statement, "sister")
+				|| findKeyword(statement, "brother"))
 		{
 			response = "Tell me more about your family.";
 		}
@@ -52,6 +52,19 @@ public class Magpie2
 		 * Create addtional code (another else if) that
 		 * responds "He sounds like a pretty dank teacher"
 		 * if you mention "Robinette" in your statement */
+		 
+		else if (findKeyword(statement, "cat")
+				|| findKeyword(statement, "dog")
+				|| findKeyword(statement, "fish")
+				|| findKeyword(statement, "turtle"))
+		{
+			response = "Tell me more about your pet.";
+		}
+		
+		else if (findKeyword(statement, "Robinette"))
+		{
+			response = "He sounds okay.";
+		}
 
 		else
 		{
@@ -92,6 +105,22 @@ public class Magpie2
 						--return psn
 
 				Otherwise, search for goal in phrase from psn + 1 forward */
+		{
+			String phrase = statement.trim().toLowerCase();
+			int psn = phrase.indexOf(goal, startPos);
+			
+			while(psn > 0)
+			{
+				String before = phrase.substring(0, psn);
+				String after = phrase.substring(psn, goal.length());
+				
+				if(before.compareTo("a") < 0 || after.compareTo("z") > 0)
+				{
+					return psn;
+				}
+			}
+			
+		}
 
 		return -1;
 
