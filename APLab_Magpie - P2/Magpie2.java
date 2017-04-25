@@ -180,7 +180,7 @@ public class Magpie2
 		}
 		int psn = findKeyword(statement, "I want to ", 0);
 		String restOfStatement = statement.substring(psn + 9).trim();
-		return "What makes you think that I " + restOfStatement + " you?";
+		return "What would it mean to " + restOfStatement + "?";
 	}
 
 	/**
