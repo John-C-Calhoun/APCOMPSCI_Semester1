@@ -29,7 +29,7 @@ public class Magpie2
 		/** To be completed in Exercise_02:
 		 * 	Modify the following code to use the findKeyword
 		 * 	Method (details in "Exercise_02" below. */
-		else if (findKeyword(statement, "no", 0)>=0)
+		else if (findKeyword(statement, "no", 0) >= 0)
 		{
 			response = "Why so negative?";
 		}
@@ -91,9 +91,7 @@ public class Magpie2
 				Check if psn > 0 - there is no need to check for before at the
 				beginning of the word
 					set before = the slot in phrase before psn */
-
 				//====>code here
-
 				/*check if you can fit goal into the rest of phrase - no need to
 				proceed otherwise
 					set after = the slot in phrase after psn + length of goal */
@@ -105,23 +103,25 @@ public class Magpie2
 						--return psn
 
 				Otherwise, search for goal in phrase from psn + 1 forward */
-		{
 			String phrase = statement.trim().toLowerCase();
+			goal = goal.toLowerCase();
 			int psn = phrase.indexOf(goal, startPos);
-			
-			while(psn > 0)
+			String before = "";
+			String after = "";
+			while(psn >= 0)
 			{
-				String before = phrase.substring(0, psn);
-				String after = phrase.substring(psn, goal.length());
-				
-				if(before.compareTo("a") < 0 || after.compareTo("z") > 0)
+				if(psn > 0)
+					before = phrase.substring(psn -1, psn);
+				//if the goal word fits in the reset of the phrase
+				if(psn + goal.length() < phrase.length())
+					after = phrase.substring(psn + goal.length(), psn + goal.length() + 1);
+				if((before.compareTo("a") < 0 || before.compareTo("z") > 0) && 
+					(after.compareTo("a") < 0 || after.compareTo("z") > 0))
 				{
 					return psn;
-				}
+				}		
+				psn = phrase.indexOf(goal, psn + 1);
 			}
-			
-		}
-
 		return -1;
 
 	}

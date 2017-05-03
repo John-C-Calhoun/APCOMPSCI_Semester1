@@ -133,21 +133,25 @@ public class Magpie2
 				Otherwise, search for goal in phrase from psn + 1 forward */
 		{
 			String phrase = statement.trim().toLowerCase();
+			goal = goal.toLowerCase();
 			int psn = phrase.indexOf(goal, startPos);
-			
-			while(psn > 0)
+			String before = "";
+			String after = "";
+			while(psn >= 0)
 			{
-				String before = phrase.substring(0, psn);
-				String after = phrase.substring(psn, goal.length());
-				
-				if(before.compareTo("a") < 0 || after.compareTo("z") > 0)
+				if(psn > 0)
+					before = phrase.substring(psn -1, psn);
+				//if the goal word fits in the reset of the phrase
+				if(psn + goal.length() < phrase.length())
+					after = phrase.substring(psn + goal.length(), psn + goal.length() + 1);
+				if((before.compareTo("a") < 0 || before.compareTo("z") > 0) && 
+					(after.compareTo("a") < 0 || after.compareTo("z") > 0))
 				{
 					return psn;
-				}
+				}		
+				psn = phrase.indexOf(goal, psn + 1);
 			}
-			
 		}
-
 		return -1;
 
 	}
@@ -172,13 +176,13 @@ public class Magpie2
 	   * "I want to ".
 	   * /
 	   * return "What would it mean to" + restOfStatement; **/
-		statement = statement.trim();
-		String LastChar = statement.substring(statement.length() - 1);
+		statement = statement.trim().toLowerCase();
+		String LastChar = statement.substring(statement.length() - 1, statement.length());
 		if(LastChar.equals("."))
 		{
 			statement = statement.substring(0, statement.length() - 1);
 		}
-		int psn = findKeyword(statement, "I want to ", 0);
+		int psn = findKeyword(statement, "I want to", 0);
 		String restOfStatement = statement.substring(psn + 9).trim();
 		return "What would it mean to " + restOfStatement + "?";
 	}
@@ -206,16 +210,16 @@ public class Magpie2
 	    *
 	    * return "What makes you think that I " + restOfStatement + "you?"
 	    * */
-		statement = statement.trim();
-		String LastChar = statement.substring(statement.length() - 1);
+		statement = statement.trim().toLowerCase();
+		String LastChar = statement.substring(statement.length() - 1, statement.length());
 		if(LastChar.equals("."))
 		{
 			statement = statement.substring(0, statement.length() - 1);
 		}
 		int psnOfYou = findKeyword(statement, "you", 0);
 		int psnOfMe = findKeyword(statement, "me", psnOfYou + 3);
-		String restOfStatement = statement.substring(psnOfYou + 3, psnOfMe);
-		return "What makes you think that I " + restOfStatement + "you?";
+		String restOfStatement = statement.substring(psnOfYou + 3, psnOfMe).trim();
+		return "What makes you think that I " + restOfStatement + " you?";
 	}
 
 	/** Override - this method is used if there are only 2 parameters...*/
