@@ -91,6 +91,38 @@ public class PictureTester
     temple.explore();
   }
   
+  public static void testMirrorArms()
+  {
+	Picture snowman = new Picture("snowman.jpg");
+    snowman.explore();
+    snowman.mirrorArms();
+    snowman.explore();
+  }
+  
+  public static void testMirrorGull()
+  {
+	Picture seagull = new Picture("seagull.jpg");
+    seagull.explore();
+    seagull.mirrorGull();
+    seagull.explore();
+  }
+  
+  public static void testCopy2()
+  {
+	Picture seagull = new Picture("seagull.jpg");
+	Picture swan = new Picture("swan.jpg");
+	seagull.explore();
+	seagull.copy2(swan, 1, 480);
+	seagull.explore();
+  }
+  
+  public static void testMyCollage()
+  {
+	Picture swan = new Picture("swan.jpg");
+	swan.myCollage();
+	swan.explore();
+  }
+  
   /** Method to test the collage method */
   public static void testCollage()
   {
@@ -128,8 +160,12 @@ public class PictureTester
     //testMirrorVertical();
 	//testMirrorVerticalRightToLeft();
 	//testMirrorHorizontal();
-	testMirrorHorizontalBotToTop();
+	//testMirrorHorizontalBotToTop();
     //testMirrorTemple();
+	//testMirrorArms();
+	//testMirrorGull();
+	//testCopy2();
+	testMyCollage();
     //testMirrorArms();
     //testMirrorGull();
     //testMirrorDiagonal();
