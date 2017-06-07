@@ -21,7 +21,7 @@ public class Magpie2
 		 * 	if you enter nothing, or if you accidentally hit
 		 * 	enter. Think to yourself: "What is the length of
 		 * 	an empty String?" */
-		if (statement.length() == 0)
+		if (statement.length() == 0 || statement.equals(" "))
 		{
 			response = "Say something, please.";
 		}
@@ -219,7 +219,7 @@ public class Magpie2
 		int psnOfYou = findKeyword(statement, "you", 0);
 		int psnOfMe = findKeyword(statement, "me", psnOfYou + 3);
 		String restOfStatement = statement.substring(psnOfYou + 3, psnOfMe).trim();
-		return "What makes you think that I " + restOfStatement + " you?";
+		return "What makes you think that I" + restOfStatement + " you?";
 	}
 
 	/** Override - this method is used if there are only 2 parameters...*/

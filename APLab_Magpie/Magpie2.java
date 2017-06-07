@@ -21,7 +21,7 @@ public class Magpie2
 		 * 	if you enter nothing, or if you accidentally hit
 		 * 	enter. Think to yourself: "What is the length of
 		 * 	an empty String?" */
-		if (statement.length() == 0)
+		if (statement.length() == 0 || statement.equals(" "))
 		{
 			response = "Say something, please.";
 		}
